@@ -1,0 +1,91 @@
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'mumbai'
+> Network id:      80001
+> Block gas limit: 25899125 (0x18b3075)
+
+
+1_deploy_contracts.js
+=====================
+
+   Deploying 'LibraryBooks'
+   ------------------------
+   > transaction hash:    0xcaa9aa5892b42541f172c7e9775353820a25cf30218b20bf1829a2b050b4e005
+   > Blocks: 5            Seconds: 8
+   > contract address:    0x7C50091584F2BDE5F6Ed5C50246C0ee829609c7f
+   > block number:        35817374
+   > block timestamp:     1684568296
+   > account:             0x0aA728f6A1d74e1bE16bb726533654AFe5F9a7cc
+   > balance:             1.390306125311048225
+   > gas used:            3861585 (0x3aec51)
+   > gas price:           2.500000015 gwei
+   > value sent:          0 ETH
+   > total cost:          0.009653962557923775 ETH
+
+   Pausing for 2 confirmations...
+
+   -------------------------------
+   > confirmation number: 1 (block: 35817376)
+   > confirmation number: 3 (block: 35817378)
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.009653962557923775 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.009653962557923775 ETH
+
+
+
+
+
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'mumbai'
+> Network id:      80001
+> Block gas limit: 20000000 (0x1312d00)
+
+
+1_deploy_contracts.js
+=====================
+
+   Replacing 'LibraryBooks'
+   ------------------------
+   > transaction hash:    0x3aa0a9470d06cd49bb469afee5e4b1a87c4bff2bd09d0bb2948d4890ec991bec
+   > Blocks: 2            Seconds: 4
+   > contract address:    0xA7A0261F6a25D073f02CA7D177Bc6BBdae0D61f9
+   > block number:        35980143
+   > block timestamp:     1684914217
+   > account:             0x0aA728f6A1d74e1bE16bb726533654AFe5F9a7cc
+   > balance:             1.38065216274540128
+   > gas used:            3861585 (0x3aec51)
+   > gas price:           2.500000017 gwei
+   > value sent:          0 ETH
+   > total cost:          0.009653962565646945 ETH
+
+   Pausing for 2 confirmations...
+
+   -------------------------------
+   > confirmation number: 2 (block: 35980145)
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.009653962565646945 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.009653962565646945 ETH
