@@ -1,4 +1,4 @@
-const contractAddress = '0xfeE4aa7aC594c2cAFb2491494b99E7A5BE8dB296';
+const contractAddress = '0x3AB1D3bF09A276c7FB05864344f109b4558e4784';
 let contract;
 let accounts;
 let currentuser;
@@ -21,6 +21,7 @@ const connectWallet = async() => {
 		// localStorage.setItem('isWalletConnected', 'true');
 	getAllBookIds();
 	checkBookFormVisibility();
+	// registerFunction();
 		
 	
 
@@ -59,11 +60,19 @@ const updateUI = (walletAddress) => {
 		walletBtn.disabled = true; 
 		walletBtn.classList.add('connected');
 
-		if(walletAddress == initialuser){
-			document.getElementById('myButton2').classList.remove('hidden');
+		// if(walletAddress == initialuser){
+		// 	document.getElementById('myButton2').classList.remove('hidden');
+		// }
+		// else{
+		// 	document.getElementById('myButton2').classList.add('hidden');
+		// }
+
+
+		if(walletAddress !== currentuser){
+			document.getElementById('myButton').classList.remove('hidden');
 		}
 		else{
-			document.getElementById('myButton2').classList.add('hidden');
+			document.getElementById('myButton').classList.add('hidden');
 		}
 	}
 	catch (err) {
@@ -72,9 +81,9 @@ const updateUI = (walletAddress) => {
 
 	
 }
-document.getElementById("userButton").addEventListener('click', ()=>{
-	console.log('buttonvlick');
-});
+// document.getElementById("userButton").addEventListener('click', ()=>{
+// 	console.log('buttonvlick');
+// });
 
 
 const getAllBookIds = async() => {
@@ -124,13 +133,13 @@ const displayBookDetails = async(result) =>{
 		bookIsbnCell.textContent = result[4];
 		bookBorrowerAddressCell.textContent = result[5];
 
-		const ul = document.getElementById('ul');
+		const ul = document.createElement('ul');
 		result[6].forEach(address => {
-			const li = document.getElementById('li');
+			const li = document.createElement('li');
 			li.textContent = address;
 			ul.appendChild(li);
 		});
-		bookBorrowerAddressCell.appendChild(ul);
+		bookIssuerAddressCell.appendChild(ul);
 
 		if(result[7] === false){
 			if(currentuser === result[5]){
@@ -150,7 +159,7 @@ const displayBookDetails = async(result) =>{
 			rentButton.textContent = "Borrow";
 			rentButton.style.borderRadius ="5px";
 			rentButton.addEventListener('click', ()=>{
-				issueBook(result[0]);
+				borrowBook(result[0]);
 			});
 			bookIsAvailableCell.appendChild(rentButton);
 		}
@@ -178,6 +187,11 @@ const returnBook = async(bookId) => {
 
 const checkBookFormVisibility = async() =>{
 	try{
+		document.getElementById("myButton3").style.display="block";
+		
+
+
+
 		const librarian = await contract.methods.librarian().call();
 		if(librarian == currentuser){
 			const addBook = document.getElementById("myButton2");
@@ -213,6 +227,72 @@ const createBook = async(title, author, publisher, isbn) =>{
 	const book = await contract.methods.addBook(title, author, publisher, isbn).send({from: accounts[0]})
 	console.log(book)
 }
+
+// 
+// 
+// 
+// const registerFunction = async() => {
+// 	// const registerBtn = document.getElementById("userButton");
+// 	// registerBtn.classList.remove("hidden");
+// 	// registerBtn.classList.add('btn', 'btn-primary');
+
+// 	// const regContainer = document.getElementById('Container');
+// 	// registerBtn.addEventListener('click', () => {
+// 	// 	regContainer.classList.toggle('active');
+// 	// 	// console.log('dgsfdhjs');
+// 	// });
+
+// 	const form = document.getElementById("conatiner");
+// 	// form.classList.remove("hidden");
+// 	form.addEventListener("submit", (event) => {
+// 		event.preventDefault(); // Prevent form submission
+
+// 		const name = document.getElementById("name").value;
+// 		const email = document.getElementById("email").value;
+// 		const mobile = document.getElementById("mobile").value;
+// 		const gender = document.getElementById("gender").value;
+// 		const id1 = document.getElementById("id1").value;
+// 		const id2 = document.getElementById("id2").value;
+
+// 		// const model = document.getElementById("modelInput").value;
+// 		// const price = document.getElementById("priceInput").value;
+
+// 		registerUser(name, email,mobile,gender,id1,id2);
+// 	});
+// }
+
+// const registerUser = async(name, email,mobile,gender,id1,id2) => {
+// 	try {
+// 		const user = await contract.methods._users(currentuser).call();
+// 		if (user.userAddress !== '0x0000000000000000000000000000000000000000') {
+// 			displayAlert('warning', 'User is already registered');
+// 			throw new Error('User is already registered');
+// 		}
+// 		await contract.methods.registerUser(name, email,mobile,gender,id1,id2).send({ from: currentuser });
+// 		displayAlert('success', 'User registered successfully');
+// 		console.log(user);
+// 	} catch (err) {
+// 		console.log(err);
+// 	}	
+// }
+
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+
+
+
+
+
+
+
+
+
 
 
 
